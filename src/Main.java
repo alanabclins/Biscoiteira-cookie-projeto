@@ -71,7 +71,7 @@ public class Main {
     }
 
 
-    
+
     // Veificar
     public static void realizarCompra(Entrega entrega, Clientes cliente, Produto[] produtos) {
         Scanner s = new Scanner(System.in);
@@ -92,7 +92,7 @@ public class Main {
             while (carrinho = false) {
                 System.out.println("Escolha o produto que deseja adicionar na sacola: ");
                 for (int i = 0; i < produtos.length; i++) {
-                    System.out.println("Produto " + i + " " + produtos[i].nome + "=" + produtos[i].preco + "reais");
+                    System.out.println("Produto " + (i+1) + " " + produtos[i].nome + "=" + produtos[i].preco + "reais");
 
                 }
                 while (escolha != 1 || escolha != 2) {
