@@ -2,12 +2,12 @@ import java.util.Scanner;
 
 public class Clientes {
     protected String nome;
-    protected int telefone;
+    protected double telefone;
     protected String instagram;
     protected String endereco;
     Scanner s = new Scanner(System.in);
 
-    public Clientes(String nome, int telefone, String instagram, String endereco) {
+    public Clientes(String nome, double telefone, String instagram, String endereco) {
         this.nome = nome;
         this.telefone = telefone;
         this.instagram = instagram;
@@ -22,11 +22,11 @@ public class Clientes {
         this.nome = nome;
     }
     
-    public int getTelefone() {
+    public double getTelefone() {
         return telefone;
     }
     
-    public void setTelefone(int telefone) {
+    public void setTelefone(double telefone) {
         this.telefone = telefone;
     }
     
@@ -49,8 +49,8 @@ public class Clientes {
     public void cadastrarCliente() {
         System.out.println("Digite o nome do cliente: ");
         this.nome = s.nextLine();
-        System.out.println("Digite o telefone do cliente: ");
-        this.telefone = s.nextInt();
+        System.out.println("Digite o telefone do cliente (somente números): ");
+        this.telefone = s.nextDouble();
         System.out.println("Digite o instagram do cliente: ");
         this.instagram = s.nextLine();
         System.out.println("Digite o endereço do cliente: ");
@@ -62,8 +62,8 @@ public class Clientes {
         System.out.println("Digite o nome do cliente para atualizar seu cadastro: ");
         String nomeBusca = s.nextLine();
         if (nomeBusca.equalsIgnoreCase(this.nome)) {
-            System.out.println("Digite o novo telefone: ");
-            this.telefone = s.nextInt();
+            System.out.println("Digite o novo telefone (somente números): ");
+            this.telefone = s.nextDouble();
             System.out.println("Digite o novo instagram: ");
             this.instagram = s.nextLine();
             System.out.println("Digite o novo endereço: ");
@@ -97,7 +97,7 @@ public class Clientes {
             this.endereco = "";
             System.out.println("Cadastro deletado com sucesso!");
         } else {
-            System.out.println("Usuário não encontrado.");
+            System.out.println("Cadastro não encontrado.");
         }
     }
 }
