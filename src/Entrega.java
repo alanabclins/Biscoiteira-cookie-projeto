@@ -5,8 +5,8 @@ public class Entrega  extends Clientes{
     public Entrega(String nome, double telefone, String instagram, String endereco, String zona,double frete) {
         super(nome, telefone, instagram, endereco);
         this.zona = zona;
-        this.tempoDeEntrega= calcularTempo();
-        this.frete = calcularFrete();
+        this.tempoDeEntrega= 0;
+        this.frete = 0;
     }
     
     public String getEndereco() {
@@ -42,15 +42,15 @@ public class Entrega  extends Clientes{
             return 15;
         }
     }
-    public  double calcularTempo(){
+    public  void calcularTempo(){
         if(zona.compareToIgnoreCase("ZN")==1){
-            return 30;
+            this.tempoDeEntrega= 30;
         } else if(zona.compareToIgnoreCase("centro")==1){
-            return 45;
+            this.tempoDeEntrega= 45;
         } else if(zona.compareToIgnoreCase("ZO")==1){
-            return 60;
+            this.tempoDeEntrega= 60;
         } else {
-            return 120;
+            this.tempoDeEntrega= 120;
         }
     }
     public double getTempoDeEntrega() {

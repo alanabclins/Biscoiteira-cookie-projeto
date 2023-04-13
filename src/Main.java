@@ -13,14 +13,14 @@ public class Main {
 
     public static void main(String[] args) {
         Produto produtos[] = new Produto[2];
-        produtos[1] = new Produto("Cookie", 5.50, 10);
-        produtos[2] = new Produto("Brownie", 8, 10);
+        produtos[0] = new Produto("Cookie", 5.50, 10);
+        produtos[1] = new Produto("Brownie", 8, 10);
         String nome = null;
         int telefone = 0;
         String instagram = null;
         String endereco = null;
         Scanner s = new Scanner(System.in);
-        System.out.println("Bem-vinfo ao Biscoiteira cookie!");
+        System.out.println("Bem-vindo ao Biscoiteira cookie!");
         boolean continuar = true;
         boolean cadastrado = false;
         Clientes cliente = new Clientes(nome, telefone, instagram, endereco);
@@ -55,7 +55,9 @@ public class Main {
                     }
                     break;
                 case 5:
-                    realizarCompra( entrega,  cliente,  produtos) ;
+                    frete( entrega);
+                    Double frete = entrega.calcularFrete();
+                    realizarCompra( entrega,  cliente,  produtos,frete) ;
                     break;
                 case 6:
                     System.out.println("Finalizando programa:");
@@ -70,31 +72,34 @@ public class Main {
 
     }
 
-
+    public static void frete(Entrega entrega){
+        // calculando entrega
+        Scanner s = new Scanner(System.in);
+        System.out.println("Qual a sua zona?");
+        String zona = s.nextLine();
+        entrega.setZona(zona);
+        Double frete = entrega.calcularFrete();
+        System.out.println("O valor da entrega é " + frete + " e o tempo será de " + entrega.getTempoDeEntrega() + "min.");
+    
+    }
+    
 
     // Veificar
-    public static void realizarCompra(Entrega entrega, Clientes cliente, Produto[] produtos) {
+    public static void realizarCompra(Entrega entrega, Clientes cliente, Produto[] produtos, double frete) {
         Scanner s = new Scanner(System.in);
         int escolha = 0;
         System.out.println("Digite o nome do cliente que irá realizar a compra: ");
         String nomeBusca = s.nextLine();
         if (nomeBusca.equalsIgnoreCase(cliente.nome)) {
-            // calculando entrega
-            System.out.println("Qual a sua zona?");
-            String zona = s.nextLine();
-            entrega.setZona(zona);
-            Double frete = entrega.calcularFrete();
-            System.out.println(
-                    "O valor da entrega é " + frete + "e o tempo será de " + entrega.getTempoDeEntrega() + "min.");
-            // preenchendo carrinho
             boolean carrinho = false;
             double compra = frete;
-            while (carrinho = false) {
+            while (carrinho == false) {
                 System.out.println("Escolha o produto que deseja adicionar na sacola: ");
                 for (int i = 0; i < produtos.length; i++) {
                     System.out.println("Produto " + (i+1) + " " + produtos[i].nome + "=" + produtos[i].preco + "reais");
 
                 }
+                escolha=s.nextInt();
                 while (escolha != 1 || escolha != 2) {
                     System.out.println("Resposta inválida! Digite novamente: ");
                     escolha = s.nextInt();
@@ -112,7 +117,6 @@ public class Main {
                 System.out.println("1 - Sim");
                 System.out.println("2 - Não");
                 int resposta = s.nextInt();
-                s.nextLine();
                 while (resposta != 1 || resposta != 2) {
                     System.out.println("Resposta inválida! Digite novamente: ");
                     resposta = s.nextInt();
@@ -122,7 +126,7 @@ public class Main {
                     break;
                 }
                 System.out.println("Obrigada pela compra, biscoiteir@! O valor total da compra foi " + compra
-                        + ". Nos vemos em " + entrega.getTempoDeEntrega() + " minutos! Até ja!");
+                        + ".");
             }
         } else {
             System.out.println("Cliente não encontrado.");
