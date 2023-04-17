@@ -50,7 +50,7 @@ public class Clientes {
         System.out.println("Digite o nome do cliente: ");
         this.nome = s.nextLine();
         System.out.println("Digite o telefone do cliente (somente números): ");
-        this.telefone = s.nextDouble();
+        this.telefone = s.nextDouble(); s.nextLine();
         System.out.println("Digite o instagram do cliente: ");
         this.instagram = s.nextLine();
         System.out.println("Digite o endereço do cliente: ");
@@ -63,7 +63,7 @@ public class Clientes {
         String nomeBusca = s.nextLine();
         if (nomeBusca.equalsIgnoreCase(this.nome)) {
             System.out.println("Digite o novo telefone (somente números): ");
-            this.telefone = s.nextDouble();
+            this.telefone = s.nextDouble(); s.nextLine();
             System.out.println("Digite o novo instagram: ");
             this.instagram = s.nextLine();
             System.out.println("Digite o novo endereço: ");

@@ -50,8 +50,7 @@ public class Main {
                         cliente.deletarCadastro();
                         cadastrado = false;
                     } else {
-                        System.out.println(
-                                "Hey! Esse usuário ainda não possui um cadastro biscoiteira! Para realizar o cadastro, digite 1");
+                        System.out.println("Hey! Esse usuário ainda não possui um cadastro biscoiteira! Para realizar o cadastro, digite 1");
                     }
                     break;
                 case 5:
@@ -125,8 +124,7 @@ public class Main {
                     carrinho = true;
                     break;
                 }
-                System.out.println("Obrigada pela compra, biscoiteir@! O valor total da compra foi " + compra
-                        + ".");
+                System.out.println("Obrigada pela compra, biscoiteir@! O valor total da compra foi " + compra + ".");
             }
         } else {
             System.out.println("Cliente não encontrado.");
