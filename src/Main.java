@@ -99,11 +99,10 @@ public class Main {
 
                 }
                 escolha=s.nextInt();
-                while (escolha != 1 || escolha != 2) {
+                while (escolha != 1 && escolha != 2) {
                     System.out.println("Resposta inválida! Digite novamente: ");
                     escolha = s.nextInt();
                 }
-                escolha = s.nextInt();
                 if (produtos[escolha - 1].getQuantidade() > 0) {
                     double preco = produtos[escolha - 1].getPreco();
                     compra = compra + preco;
@@ -116,7 +115,7 @@ public class Main {
                 System.out.println("1 - Sim");
                 System.out.println("2 - Não");
                 int resposta = s.nextInt();
-                while (resposta != 1 || resposta != 2) {
+                while (resposta != 1 && resposta != 2) {
                     System.out.println("Resposta inválida! Digite novamente: ");
                     resposta = s.nextInt();
                 }
