@@ -30,15 +30,19 @@ public class Entrega  extends Clientes{
     public  double calcularFrete(){
         if(zona.compareToIgnoreCase("ZN")==1){
             this.frete=5;
+            calcularTempo();
             return 5;
         } else if(zona.compareToIgnoreCase("centro")==1){
             this.frete=7;
+            calcularTempo();
             return 7;
         } else if(zona.compareToIgnoreCase("ZO")==1){
             this.frete=10;
+            calcularTempo();
             return 10;
         } else {
             this.frete=15;
+            calcularTempo();
             return 15;
         }
     }

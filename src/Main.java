@@ -12,6 +12,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
+        //funcionario e cliente
         Produto produtos[] = new Produto[2];
         produtos[0] = new Produto("Cookie", 5.50, 10);
         produtos[1] = new Produto("Brownie", 8, 10);
@@ -79,7 +80,7 @@ public class Main {
         entrega.setZona(zona);
         Double frete = entrega.calcularFrete();
         System.out.println("O valor da entrega é " + frete + " e o tempo será de " + entrega.getTempoDeEntrega() + "min.");
-    
+        
     }
     
 
@@ -123,8 +124,8 @@ public class Main {
                     carrinho = true;
                     break;
                 }
-                System.out.println("Obrigada pela compra, biscoiteir@! O valor total da compra foi " + compra + ".");
             }
+            System.out.println("Obrigada pela compra, biscoiteir@! O valor total da compra foi " + compra + ".");
         } else {
             System.out.println("Cliente não encontrado.");
         }
