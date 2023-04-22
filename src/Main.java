@@ -2,34 +2,44 @@ import java.util.Scanner;
 
 public class Main {
     public static void menu() {
-        System.out.println("1. Criar um novo cadastro de cliente");
-        System.out.println("2. Atualizar um cadastro já existente");
-        System.out.println("3. Buscar cadastro por nome");
-        System.out.println("4. Deletar cadastro");
-        System.out.println("5. Editar estoque");
-        System.out.println("6. Realizar compra");
-        System.out.println("7. Sair");
-        System.out.println("Informe a operação que deseja realizar: ");
+        Scanner s = new Scanner(System.in);
+        System.out.println("Você é: ");
+        System.out.println("1 - Funcionário");
+        System.out.println("2 - Cliente");
+        int resposta = s.nextInt(); s.nextLine();
+        if(resposta == 1){
+            System.out.println("Informe a operação que deseja realizar: ");
+            System.out.println("1. Criar um novo cadastro de cliente");
+            System.out.println("2. Atualizar um cadastro já existente");
+            System.out.println("3. Buscar cadastro por nome");
+            System.out.println("4. Deletar cadastro");
+            System.out.println("5. Adicionar produto no estoque");
+            System.out.println("6. Apagar produto do estoque");
+            System.out.println("7. Mostrar todo o estoque");
+            System.out.println("8. Limpar estoque");
+            System.out.println("11. Sair");
+        } else {
+            System.out.println("Informe a operação que deseja realizar: ");
+            System.out.println("9. Realizar compra");
+            System.out.println("10. Calcular frete para sua zona");
+            System.out.println("11. Sair");
+        }
     }
-
     public static void main(String[] args) {
-        //funcionario e cliente
-        Produto produtos[] = new Produto[2];
-        produtos[0] = new Produto("Cookie", 5.50, 10);
-        produtos[1] = new Produto("Brownie", 8, 10);
+        Estoque estoque = new Estoque();
+        Scanner s = new Scanner(System.in);
         String nome = null;
         int telefone = 0;
         String instagram = null;
         String endereco = null;
-        Scanner s = new Scanner(System.in);
-        System.out.println("Bem-vindo ao Biscoiteira cookie!");
-        boolean continuar = true;
-        boolean cadastrado = false;
         Clientes cliente = new Clientes(nome, telefone, instagram, endereco);
         Entrega entrega = new Entrega(nome, telefone, instagram, endereco, null, 0);
+        System.out.println("Bem-vindo ao Biscoiteira cookie!");
+        boolean cadastrado = false;
+        boolean continuar = true;
         while (continuar == true) {
             menu();
-            int escolha = s.nextInt();
+            int escolha = s.nextInt(); s.nextLine();
 
             switch (escolha) {
                 case 1:
@@ -41,7 +51,7 @@ public class Main {
                     if (cadastrado == true) {
                         cliente.atualizarCadastro();
                     } else {
-                        System.out.println("Clienete não cadastrado. Para cadastrar, digite 1.");
+                        System.out.println("Cliente não cadastrado. Para cadastrar, digite 1.");
                     }
                     break;
                 case 3:
@@ -56,43 +66,36 @@ public class Main {
                     }
                     break;
                 case 5:
-                    System.out.println("Vamos montar o estoque de hoje!");
-                    System.out.println("Quantos produtos você deseja adicionar na fornada de hoje?");
-                    int est = s.nextInt(); s.nextLine();
-                    Fabrica fabrica[] = new Fabrica[est];
-                    for(int i = 0; i < est; i++){
-                        System.out.println("Digite o nome do produto: ");
-                        String nomeP = s.nextLine(); 
-                        System.out.println("Digite o preco do produto: ");
-                        double preco = s.nextDouble(); s.nextLine();
-                        System.out.println("Digite a quantidade do produto: ");
-                        int quantidade = s.nextInt(); s.nextLine();
-                        System.out.println("Digite a fornada do produto: ");
-                        int fornada = s.nextInt(); s.nextLine();
-                        System.out.println("Digite o estoque do produto: ");
-                        int estoque = s.nextInt(); s.nextLine();
-                        fabrica[i] = new Fabrica(nomeP, preco, quantidade, fornada, estoque);
-                    }
+                    estoque.adicionarProduto();
                     break;
                 case 6:
-                    frete(entrega);
-                    Double frete = entrega.calcularFrete();
-                    realizarCompra(entrega, cliente, produtos, frete) ;
+                    estoque.apagarProduto();
                     break;
                 case 7:
+                    estoque.imprimirEstoque();
+                    break;
+                case 8:
+                    estoque.limparEstoque();
+                    break;
+                /*case 9:
+                    frete(entrega);
+                    Double frete = entrega.calcularFrete();
+                    //adaptar para estoque
+                    realizarCompra(entrega, cliente, produtos, frete) ;
+                    break;
+                case 10:
+                    //calcular frete para a zona dita pelo cliente
+                case 11:
                     System.out.println("Finalizando programa:");
                     continuar = false;
                     break;
                 default:
                     System.out.println("Hello, biscoiteiro! Digite uma opção válida :) ");
-                    break;
-
+                    break;*/
             }
         }
-
-    }
-
-    public static void frete(Entrega entrega){
+    } 
+    /*public static void frete(Entrega entrega){
         // calculando entrega
         Scanner s = new Scanner(System.in);
         System.out.println("Qual a sua zona?");
@@ -102,7 +105,6 @@ public class Main {
         System.out.println("O valor da entrega é " + frete + " e o tempo será de " + entrega.getTempoDeEntrega() + "min.");
         
     }
-    
 
     // Veificar
     public static void realizarCompra(Entrega entrega, Clientes cliente, Produto[] produtos, double frete) {
@@ -149,5 +151,5 @@ public class Main {
         } else {
             System.out.println("Cliente não encontrado.");
         }
-    }
+    }*/
 }
