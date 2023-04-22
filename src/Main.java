@@ -6,8 +6,9 @@ public class Main {
         System.out.println("2. Atualizar um cadastro já existente");
         System.out.println("3. Buscar cadastro por nome");
         System.out.println("4. Deletar cadastro");
-        System.out.println("5. Realizar compra");
-        System.out.println("6. Sair");
+        System.out.println("5. Editar estoque");
+        System.out.println("6. Realizar compra");
+        System.out.println("7. Sair");
         System.out.println("Informe a operação que deseja realizar: ");
     }
 
@@ -55,11 +56,30 @@ public class Main {
                     }
                     break;
                 case 5:
-                    frete( entrega);
-                    Double frete = entrega.calcularFrete();
-                    realizarCompra( entrega,  cliente,  produtos,frete) ;
+                    System.out.println("Vamos montar o estoque de hoje!");
+                    System.out.println("Quantos produtos você deseja adicionar na fornada de hoje?");
+                    int est = s.nextInt(); s.nextLine();
+                    Fabrica fabrica[] = new Fabrica[est];
+                    for(int i = 0; i < est; i++){
+                        System.out.println("Digite o nome do produto: ");
+                        String nomeP = s.nextLine(); 
+                        System.out.println("Digite o preco do produto: ");
+                        double preco = s.nextDouble(); s.nextLine();
+                        System.out.println("Digite a quantidade do produto: ");
+                        int quantidade = s.nextInt(); s.nextLine();
+                        System.out.println("Digite a fornada do produto: ");
+                        int fornada = s.nextInt(); s.nextLine();
+                        System.out.println("Digite o estoque do produto: ");
+                        int estoque = s.nextInt(); s.nextLine();
+                        fabrica[i] = new Fabrica(nomeP, preco, quantidade, fornada, estoque);
+                    }
                     break;
                 case 6:
+                    frete(entrega);
+                    Double frete = entrega.calcularFrete();
+                    realizarCompra(entrega, cliente, produtos, frete) ;
+                    break;
+                case 7:
                     System.out.println("Finalizando programa:");
                     continuar = false;
                     break;
