@@ -47,30 +47,30 @@ public class Clientes {
     }
     
     public void cadastrarCliente() {
-        System.out.println("Digite o nome do cliente: ");
+        System.out.println("Digite seu nome: ");
         this.nome = s.nextLine();
-        System.out.println("Digite o telefone do cliente (somente números): ");
+        System.out.println("Digite seu telefone (somente números): ");
         this.telefone = s.nextDouble(); s.nextLine();
-        System.out.println("Digite o instagram do cliente: ");
+        System.out.println("Digite seu instagram: ");
         this.instagram = s.nextLine();
-        System.out.println("Digite o endereço do cliente: ");
+        System.out.println("Digite seu endereço: ");
         this.endereco = s.nextLine();
-        System.out.println("Cliente cadastrado com sucesso!");
+        System.out.println("Cadastro concluído com sucesso!");
     }
     
     public void atualizarCadastro() {
-        System.out.println("Digite o nome do cliente para atualizar seu cadastro: ");
+        System.out.println("Digite seu nome para atualizar seu cadastro: ");
         String nomeBusca = s.nextLine();
         if (nomeBusca.equalsIgnoreCase(this.nome)) {
-            System.out.println("Digite o novo telefone (somente números): ");
+            System.out.println("Digite seu novo telefone (somente números): ");
             this.telefone = s.nextDouble(); s.nextLine();
-            System.out.println("Digite o novo instagram: ");
+            System.out.println("Digite seu novo instagram: ");
             this.instagram = s.nextLine();
-            System.out.println("Digite o novo endereço: ");
+            System.out.println("Digite seu novo endereço: ");
             this.endereco = s.nextLine();
             System.out.println("Cadastro atualizado com sucesso!");
         } else {
-            System.out.println("Usuário não encontrado.");
+            System.out.println("Poxa, esse nome ainda não foi cadastrado. Confirme o nome exato que você usou no seu cadastro e tente novamente.");
         }
     }
     
@@ -83,12 +83,12 @@ public class Clientes {
             System.out.println("Instagram: " + this.instagram);
             System.out.println("Endereço: " + this.endereco);
         } else {
-            System.out.println("Usuário não encontrado.");
+            System.out.println("Cadastro não encontrado.");
         }
     }
     
     public void deletarCadastro() {
-        System.out.println("Digite o nome do cliente para deletar seu cadastro: ");
+        System.out.println("Digite seu nome para deletar seu cadastro: ");
         String nomeBusca = s.nextLine();
         if (nomeBusca.equalsIgnoreCase(this.nome)) {
             this.nome = "";

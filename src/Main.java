@@ -9,17 +9,17 @@ public class Main {
         int resposta = s.nextInt(); s.nextLine();
         if(resposta == 1){
             System.out.println("Informe a operação que deseja realizar: ");
-            System.out.println("1. Criar um novo cadastro de cliente");
-            System.out.println("2. Atualizar um cadastro já existente");
-            System.out.println("3. Buscar cadastro por nome");
-            System.out.println("4. Deletar cadastro");
-            System.out.println("5. Adicionar produto no estoque");
-            System.out.println("6. Apagar produto do estoque");
-            System.out.println("7. Mostrar todo o estoque");
-            System.out.println("8. Limpar estoque");
+            System.out.println("1. Buscar cadastro de cliente por nome");
+            System.out.println("2. Adicionar produto no estoque");
+            System.out.println("3. Apagar produto do estoque");
+            System.out.println("4. Mostrar todo o estoque");
+            System.out.println("5. Limpar estoque");
             System.out.println("11. Sair");
         } else {
             System.out.println("Informe a operação que deseja realizar: ");
+            System.out.println("6. Criar seu cadastro");
+            System.out.println("7. Atualizar informações do seu cadastro");
+            System.out.println("8. Deletar seu cadastro");
             System.out.println("9. Realizar compra");
             System.out.println("10. Calcular frete para sua zona");
             System.out.println("11. Sair");
@@ -43,10 +43,25 @@ public class Main {
 
             switch (escolha) {
                 case 1:
+                    cliente.buscarCliente();
+                    break;
+                case 2:
+                    estoque.adicionarProduto();
+                    break;
+                case 3:
+                    estoque.apagarProduto();
+                    break;
+                case 4:
+                    estoque.imprimirEstoque();
+                    break;
+                case 5:
+                    estoque.limparEstoque();
+                    break;
+                case 6:
                     cliente.cadastrarCliente();
                     cadastrado = true;
                     break;
-                case 2:
+                case 7:
                     System.out.println("Atualizando cadastro: ");
                     if (cadastrado == true) {
                         cliente.atualizarCadastro();
@@ -54,28 +69,13 @@ public class Main {
                         System.out.println("Cliente não cadastrado. Para cadastrar, digite 1.");
                     }
                     break;
-                case 3:
-                    cliente.buscarCliente();
-                    break;
-                case 4:
+                case 8:
                     if (cadastrado == true) {
                         cliente.deletarCadastro();
                         cadastrado = false;
                     } else {
                         System.out.println("Hey! Esse usuário ainda não possui um cadastro biscoiteira! Para realizar o cadastro, digite 1");
                     }
-                    break;
-                case 5:
-                    estoque.adicionarProduto();
-                    break;
-                case 6:
-                    estoque.apagarProduto();
-                    break;
-                case 7:
-                    estoque.imprimirEstoque();
-                    break;
-                case 8:
-                    estoque.limparEstoque();
                     break;
                 /*case 9:
                     frete(entrega);
