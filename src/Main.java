@@ -7,7 +7,7 @@ public class Main {
         System.out.println("1 - Funcionário");
         System.out.println("2 - Cliente");
         int resposta = s.nextInt(); s.nextLine();
-        if(resposta == 1){
+        if(resposta == 1) {
             System.out.println("Informe a operação que deseja realizar: ");
             System.out.println("1. Buscar cadastro de cliente por nome");
             System.out.println("2. Adicionar produto no estoque");
@@ -27,15 +27,15 @@ public class Main {
     }
     public static void main(String[] args) {
         Estoque estoque = new Estoque();
+        Clientes clientes = new Clientes();
         Scanner s = new Scanner(System.in);
         String nome = null;
         int telefone = 0;
         String instagram = null;
         String endereco = null;
-        Clientes cliente = new Clientes(nome, telefone, instagram, endereco);
-        Entrega entrega = new Entrega(nome, telefone, instagram, endereco, null, 0);
+        //Clientes cliente = new Clientes(nome, telefone, instagram, endereco);
+        //Entrega entrega = new Entrega(nome, telefone, instagram, endereco, null, 0);
         System.out.println("Bem-vindo ao Biscoiteira cookie!");
-        boolean cadastrado = false;
         boolean continuar = true;
         while (continuar == true) {
             menu();
@@ -43,7 +43,7 @@ public class Main {
 
             switch (escolha) {
                 case 1:
-                    cliente.buscarCliente();
+                    clientes.buscarCliente();
                     break;
                 case 2:
                     estoque.adicionarProduto();
@@ -58,24 +58,13 @@ public class Main {
                     estoque.limparEstoque();
                     break;
                 case 6:
-                    cliente.cadastrarCliente();
-                    cadastrado = true;
+                    clientes.cadastrarCliente();
                     break;
                 case 7:
-                    System.out.println("Atualizando cadastro: ");
-                    if (cadastrado == true) {
-                        cliente.atualizarCadastro();
-                    } else {
-                        System.out.println("Cliente não cadastrado. Para cadastrar, digite 1.");
-                    }
+                    clientes.atualizarCadastro();
                     break;
                 case 8:
-                    if (cadastrado == true) {
-                        cliente.deletarCadastro();
-                        cadastrado = false;
-                    } else {
-                        System.out.println("Hey! Esse usuário ainda não possui um cadastro biscoiteira! Para realizar o cadastro, digite 1");
-                    }
+                    clientes.deletarCadastro();
                     break;
                 /*case 9:
                     frete(entrega);

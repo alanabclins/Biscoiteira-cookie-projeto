@@ -2,8 +2,9 @@ public class Entrega  extends Clientes{
     protected String zona;
     protected double frete;
     protected double tempoDeEntrega;
+    
     public Entrega(String nome, double telefone, String instagram, String endereco, String zona,double frete) {
-        super(nome, telefone, instagram, endereco);
+        //super(nome, telefone, instagram, endereco);
         this.zona = zona;
         this.tempoDeEntrega= 0;
         this.frete = 0;
