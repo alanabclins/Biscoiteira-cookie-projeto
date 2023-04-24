@@ -30,7 +30,7 @@ public class Main {
         Clientes clientes = new Clientes();
         Scanner s = new Scanner(System.in);
         String nome = null;
-        int telefone = 0;
+        String telefone =null;
         String instagram = null;
         String endereco = null;
         //Clientes cliente = new Clientes(nome, telefone, instagram, endereco);

@@ -5,7 +5,7 @@ import java.util.List;
 public class Clientes {
     List<Cadastro> listaCadastros = new ArrayList<>();
     String nome;
-    double telefone;
+    String telefone;
     String instagram;
     String endereco;
     Cadastro cadastros = new Cadastro(nome, telefone, instagram, endereco);
@@ -19,7 +19,7 @@ public class Clientes {
         System.out.println("Digite seu nome: ");
         this.nome = s.nextLine();
         System.out.println("Digite seu telefone (somente números): ");
-        this.telefone = s.nextDouble(); s.nextLine();
+        this.telefone = s.nextLine(); 
         System.out.println("Digite seu instagram: ");
         this.instagram = s.nextLine();
         System.out.println("Digite seu endereço: ");
@@ -36,7 +36,7 @@ public class Clientes {
         for (Cadastro cadastros : listaCadastros) {
             if (nomeBusca.equalsIgnoreCase(cadastros.nome)) {
                 System.out.println("Digite seu novo telefone (somente números): ");
-                cadastros.telefone = s.nextDouble(); s.nextLine();
+                cadastros.telefone = s.nextLine();
                 System.out.println("Digite seu novo instagram: ");
                 cadastros.instagram = s.nextLine();
                 System.out.println("Digite seu novo endereço: ");

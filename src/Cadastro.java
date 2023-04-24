@@ -1,10 +1,10 @@
 public class Cadastro {
     protected String nome;
-    protected double telefone;
+    protected String telefone;
     protected String instagram;
     protected String endereco;
 
-    public Cadastro(String nome, double telefone, String instagram, String endereco) {
+    public Cadastro(String nome, String telefone, String instagram, String endereco) {
         this.nome = nome;
         this.telefone = telefone;
         this.instagram = instagram;
@@ -19,11 +19,11 @@ public class Cadastro {
         this.nome = nome;
     }
     
-    public double getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
     
-    public void setTelefone(double telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
     
