@@ -95,7 +95,7 @@ public class Main {
         
     }
 
-    // Veificar
+    */
     public static void realizarCompra(Entrega entrega, Clientes cliente, Produto[] produtos, double frete) {
         Scanner s = new Scanner(System.in);
         int escolha = 0;
@@ -140,5 +140,5 @@ public class Main {
         } else {
             System.out.println("Cliente não encontrado.");
         }
-    }*/
+    }
 }
