@@ -3,16 +3,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Clientes {
-    List<Cadastro> listaCadastros = new ArrayList<>();
+    //List<Cadastro> listaCadastros = new ArrayList<>();
+    public static List<Cadastro> listaCadastros = new ArrayList<Cadastro>();
     String nome;
     String telefone;
     String instagram;
     String endereco;
-    Cadastro cadastros = new Cadastro(nome, telefone, instagram, endereco);
+    String zona;
+    Cadastro cadastros = new Cadastro(nome, telefone, instagram, endereco, zona);
     Scanner s = new Scanner(System.in);
 
     public Clientes() {
-        this.cadastros = new Cadastro(nome, telefone, instagram, endereco);
+        this.cadastros = new Cadastro(nome, telefone, instagram, endereco, zona);
     }
     
     public void cadastrarCliente() {
@@ -24,7 +26,9 @@ public class Clientes {
         this.instagram = s.nextLine();
         System.out.println("Digite seu endereço: ");
         this.endereco = s.nextLine();
-        Cadastro cadastros = new Cadastro(nome, telefone, instagram, endereco);
+        System.out.println("Em que zona de Recife está localizado seu endereço? (Zona Norte, Zpna Sul, Zona Oeste ou Centro)");
+        this.zona = s.nextLine();
+        Cadastro cadastros = new Cadastro(nome, telefone, instagram, endereco, zona);
         listaCadastros.add(cadastros);
         System.out.println("Cadastro concluído com sucesso!");
     }
@@ -41,6 +45,8 @@ public class Clientes {
                 cadastros.instagram = s.nextLine();
                 System.out.println("Digite seu novo endereço: ");
                 cadastros.endereco = s.nextLine();
+                System.out.println("Digite a zona do seu novo endereço: ");
+                cadastros.zona = s.nextLine();
                 System.out.println("Cadastro atualizado com sucesso!");
                 achou = true;
                 break;
@@ -61,6 +67,7 @@ public class Clientes {
                 System.out.println("Telefone: " + cadastros.telefone);
                 System.out.println("Instagram: " + cadastros.instagram);
                 System.out.println("Endereço: " + cadastros.endereco);
+                System.out.println("Zona: " + cadastros.zona);
                 achou = true;
                 break;
             }

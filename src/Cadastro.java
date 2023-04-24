@@ -3,12 +3,14 @@ public class Cadastro {
     protected String telefone;
     protected String instagram;
     protected String endereco;
+    protected String zona;
 
-    public Cadastro(String nome, String telefone, String instagram, String endereco) {
+    public Cadastro(String nome, String telefone, String instagram, String endereco, String zona) {
         this.nome = nome;
         this.telefone = telefone;
         this.instagram = instagram;
         this.endereco = endereco;
+        this.zona = zona;
     }
 
     public String getNome() {
@@ -41,6 +43,14 @@ public class Cadastro {
     
     public void setEndereco(String endereco) {
         this.endereco = endereco;
+    }
+
+    public String getZona() {
+        return zona;
+    }
+    
+    public void setZpna(String endereco) {
+        this.zona = zona;
     }
     
 }

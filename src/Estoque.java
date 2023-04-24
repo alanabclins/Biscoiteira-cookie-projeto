@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Estoque {
-    List<Produto> listaProdutos = new ArrayList<>();
+    public static List<Produto> listaProdutos = new ArrayList<>();
     String nome;
     double preco;
     int quantidade;

@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.List;
 
 public class Main {
     public static void menu() {
@@ -28,13 +29,16 @@ public class Main {
     public static void main(String[] args) {
         Estoque estoque = new Estoque();
         Clientes clientes = new Clientes();
-        Scanner s = new Scanner(System.in);
         String nome = null;
         String telefone =null;
         String instagram = null;
         String endereco = null;
+        String zona = null;
+        double frete = 0;
+        Entrega entrega = new Entrega(nome, telefone, instagram, endereco, zona, frete);
+        List<Produto> listaProdutos = Estoque.listaProdutos;
+        Scanner s = new Scanner(System.in);
         //Clientes cliente = new Clientes(nome, telefone, instagram, endereco);
-        //Entrega entrega = new Entrega(nome, telefone, instagram, endereco, null, 0);
         System.out.println("Bem-vindo ao Biscoiteira cookie!");
         boolean continuar = true;
         while (continuar == true) {
@@ -71,10 +75,23 @@ public class Main {
                     Double frete = entrega.calcularFrete();
                     //adaptar para estoque
                     realizarCompra(entrega, cliente, produtos, frete) ;
-                    break;
+                    break;*/
                 case 10:
-                    //calcular frete para a zona dita pelo cliente
-                case 11:
+                    double valorFrete = entrega.calcularFrete();
+                    if (valorFrete == 0){
+                        System.out.println("Endereço inválido. Tente novamente.");
+                    } else if (valorFrete == 5) {
+                        System.out.println("O valor do frete é de R$5,00.");
+                    } else if (valorFrete == 7) {
+                        System.out.println("O valor do frete é de R$7,00.");
+                    } else if (valorFrete == 10) {
+                        System.out.println("O valor do frete é de R$10,00.");
+                    } else if (valorFrete == 15) {
+                        System.out.println("O valor do frete é de R$15,00.");
+                    }
+                    break;
+
+                /*case 11:
                     System.out.println("Finalizando programa:");
                     continuar = false;
                     break;
