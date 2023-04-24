@@ -12,7 +12,6 @@ public class Entrega  extends Cadastro{
         this.tempoDeEntrega= 0;
         this.frete = 0;
     }
-
     public String getEndereco() {
         return endereco;
     }
@@ -32,7 +31,7 @@ public class Entrega  extends Cadastro{
         this.frete = frete;
     }
     public double calcularFrete() {
-        System.out.println("Deseja usar seu endereço cadastrado? 1- Sim, 2- Não, usar outro endereço.");
+        System.out.println("Deseja usar seu endereço cadastrado? 1- Sim; 2- Não, usar outro endereço.");
         int resposta = s.nextInt(); s.nextLine();
         if (resposta == 1) {
             System.out.println("Digite seu nome de cadastro: ");
@@ -84,13 +83,14 @@ public class Entrega  extends Cadastro{
                 //rever - calcularTempo();
                 return 10;
             } else {
-                this.frete=15;
+                this.frete = 15;
                 //rever - calcularTempo();
                 return 15;
             }
         }
         return 0;
     }
+    //ajeitar
     public  void calcularTempo(){
         if(zona.compareToIgnoreCase("ZN")==1){
             this.tempoDeEntrega= 30;
@@ -109,4 +109,3 @@ public class Entrega  extends Cadastro{
         this.tempoDeEntrega = tempoDeEntrega;
     }
 }
-

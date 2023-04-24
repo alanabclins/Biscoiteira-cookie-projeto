@@ -90,14 +90,13 @@ public class Main {
                         System.out.println("O valor do frete é de R$15,00.");
                     }
                     break;
-
-                /*case 11:
+                case 11:
                     System.out.println("Finalizando programa:");
                     continuar = false;
                     break;
                 default:
                     System.out.println("Hello, biscoiteiro! Digite uma opção válida :) ");
-                    break;*/
+                    break;
             }
         }
     } 

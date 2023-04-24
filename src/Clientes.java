@@ -26,7 +26,7 @@ public class Clientes {
         this.instagram = s.nextLine();
         System.out.println("Digite seu endereço: ");
         this.endereco = s.nextLine();
-        System.out.println("Em que zona de Recife está localizado seu endereço? (Zona Norte, Zpna Sul, Zona Oeste ou Centro)");
+        System.out.println("Em que zona de Recife está localizado seu endereço? (Zona Norte, Zona Sul, Zona Oeste ou Centro)");
         this.zona = s.nextLine();
         Cadastro cadastros = new Cadastro(nome, telefone, instagram, endereco, zona);
         listaCadastros.add(cadastros);
@@ -45,7 +45,7 @@ public class Clientes {
                 cadastros.instagram = s.nextLine();
                 System.out.println("Digite seu novo endereço: ");
                 cadastros.endereco = s.nextLine();
-                System.out.println("Digite a zona do seu novo endereço: ");
+                System.out.println("Digite a zona do seu novo endereço (Zona Norte, Zona Sul, Zona Oeste ou Centro): ");
                 cadastros.zona = s.nextLine();
                 System.out.println("Cadastro atualizado com sucesso!");
                 achou = true;

@@ -49,8 +49,7 @@ public class Cadastro {
         return zona;
     }
     
-    public void setZpna(String endereco) {
+    public void setZona(String zona) {
         this.zona = zona;
     }
-    
 }
