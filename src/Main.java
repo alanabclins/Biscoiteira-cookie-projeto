@@ -3,28 +3,27 @@ import java.util.List;
 
 public class Main {
     public static void menu() {
-        Scanner s = new Scanner(System.in);
         System.out.println("Você é: ");
         System.out.println("1 - Funcionário");
         System.out.println("2 - Cliente");
-        int resposta = s.nextInt(); s.nextLine();
-        if(resposta == 1) {
-            System.out.println("Informe a operação que deseja realizar: ");
-            System.out.println("1. Buscar cadastro de cliente por nome");
-            System.out.println("2. Adicionar produto no estoque");
-            System.out.println("3. Apagar produto do estoque");
-            System.out.println("4. Mostrar todo o estoque");
-            System.out.println("5. Limpar estoque");
-            System.out.println("11. Sair");
-        } else {
-            System.out.println("Informe a operação que deseja realizar: ");
-            System.out.println("6. Criar seu cadastro");
-            System.out.println("7. Atualizar informações do seu cadastro");
-            System.out.println("8. Deletar seu cadastro");
-            System.out.println("9. Realizar compra");
-            System.out.println("10. Calcular frete para sua zona");
-            System.out.println("11. Sair");
-        }
+    } 
+    public static void menuFuncionario() {
+        System.out.println("Informe a operação que deseja realizar: ");
+        System.out.println("1. Buscar cadastro de cliente por nome");
+        System.out.println("2. Adicionar produto no estoque");
+        System.out.println("3. Apagar produto do estoque");
+        System.out.println("4. Mostrar todo o estoque");
+        System.out.println("5. Limpar estoque");
+        System.out.println("6. Sair");
+    } 
+    public static void menuCliente(){
+        System.out.println("Informe a operação que deseja realizar: ");
+        System.out.println("1. Criar seu cadastro");
+        System.out.println("2. Atualizar informações do seu cadastro");
+        System.out.println("3. Deletar seu cadastro");
+        System.out.println("4. Realizar compra");
+        System.out.println("5. Calcular frete para sua zona");
+        System.out.println("6. Sair");
     }
     public static void main(String[] args) {
         Estoque estoque = new Estoque();
@@ -41,9 +40,12 @@ public class Main {
         //Clientes cliente = new Clientes(nome, telefone, instagram, endereco);
         System.out.println("Bem-vindo ao Biscoiteira cookie!");
         boolean continuar = true;
+        menu();
+        int resposta=s.nextInt();
         while (continuar == true) {
-            menu();
-            int escolha = s.nextInt(); s.nextLine();
+            if(resposta==1){
+                menuCliente();
+                int escolha = s.nextInt(); s.nextLine();
 
             switch (escolha) {
                 case 1:
@@ -62,6 +64,18 @@ public class Main {
                     estoque.limparEstoque();
                     break;
                 case 6:
+                    System.out.println("Finalizando programa:");
+                    continuar = false;
+                    break;
+                default:
+                    System.out.println("Hello, biscoiteiro! Digite uma opção válida :) ");
+                    break;
+            }
+            } else {
+                menuFuncionario();
+                int escolha=s.nextInt();s.nextLine();
+                switch (escolha) {
+                    case 6:
                     clientes.cadastrarCliente();
                     break;
                 case 7:
@@ -71,9 +85,9 @@ public class Main {
                     clientes.deletarCadastro();
                     break;
                 case 9:
-                /*
+                
                     frete(entrega);
-                    Double frete = entrega.calcularFrete();*/
+                    Double frete = entrega.calcularFrete();
                     realizarCompra(clientes, frete, estoque);
                     break;
                 case 10:
@@ -98,9 +112,16 @@ public class Main {
                     System.out.println("Hello, biscoiteiro! Digite uma opção válida :) ");
                     break;
             }
+                }
+            }
+            
         }
     } 
     /*public static void frete(Entrega entrega){
+
+            
+ 
+
         // calculando entrega
         Scanner s = new Scanner(System.in);
         System.out.println("Qual a sua zona?");
