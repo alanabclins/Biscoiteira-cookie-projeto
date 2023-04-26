@@ -70,12 +70,12 @@ public class Main {
                 case 8:
                     clientes.deletarCadastro();
                     break;
-                /*case 9:
+                case 9:
+                /*
                     frete(entrega);
-                    Double frete = entrega.calcularFrete();
-                    //adaptar para estoque
-                    realizarCompra(entrega, cliente, produtos, frete) ;
-                    break;*/
+                    Double frete = entrega.calcularFrete();*/
+                    realizarCompra(clientes, frete, estoque);
+                    break;
                 case 10:
                     double valorFrete = entrega.calcularFrete();
                     if (valorFrete == 0){
@@ -114,7 +114,6 @@ public class Main {
     */
     public static void realizarCompra( Clientes cliente, double frete,Estoque estoque) {
         Scanner s = new Scanner(System.in);
-        int escolha = 0;
         System.out.println("Digite o nome do cliente que irá realizar a compra: ");
         String nomeBusca = s.nextLine();
         String produto;
