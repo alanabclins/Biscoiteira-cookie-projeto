@@ -13,11 +13,6 @@ public class Estoque {
     public Estoque() {
         this.produtos = new Produto(nome, preco, quantidade);
     }
-    public void imprimirLista() {
-        for (Produto produto : listaProdutos) {
-            System.out.println(produto.getNome() + " - " + produto.getPreco());
-        }
-    }
 
     public Produto buscarproduto(String x){
         for (Produto produto : listaProdutos) {
