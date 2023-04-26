@@ -19,6 +19,15 @@ public class Estoque {
         }
     }
 
+    public Produto buscarproduto(String x){
+        for (Produto produto : listaProdutos) {
+            if(produto.nome.equalsIgnoreCase(x)){
+                return produto;
+            }
+        }
+        return null;
+    }
+
     public void adicionarProduto() {
         System.out.println("Digite o nome do produto: ");
         this.nome = s.nextLine();
