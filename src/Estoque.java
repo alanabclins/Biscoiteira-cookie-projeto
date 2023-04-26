@@ -4,10 +4,10 @@ import java.util.List;
 
 public class Estoque {
     public static List<Produto> listaProdutos = new ArrayList<>();
-    String nome;
-    double preco;
-    int quantidade;
-    Produto produtos = new Produto(nome, preco, quantidade);
+    protected String nome;
+    protected double preco;
+    protected int quantidade;
+    protected Produto produtos = new Produto(nome, preco, quantidade);
     Scanner s = new Scanner(System.in);
 
     public Estoque() {

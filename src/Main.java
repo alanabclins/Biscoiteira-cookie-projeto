@@ -112,32 +112,26 @@ public class Main {
     }
 
     */
-    public static void realizarCompra(Entrega entrega, Clientes cliente, Produto[] produtos, double frete) {
+    public static void realizarCompra( Clientes cliente, double frete,Estoque estoque) {
         Scanner s = new Scanner(System.in);
         int escolha = 0;
         System.out.println("Digite o nome do cliente que irá realizar a compra: ");
         String nomeBusca = s.nextLine();
+        String produto;
         if (nomeBusca.equalsIgnoreCase(cliente.nome)) {
             boolean carrinho = false;
             double compra = frete;
             while (carrinho == false) {
                 System.out.println("Escolha o produto que deseja adicionar na sacola: ");
-                for (int i = 0; i < produtos.length; i++) {
-                    System.out.println("Produto " + (i+1) + " " + produtos[i].nome + "=" + produtos[i].preco + "reais");
-
-                }
-                escolha=s.nextInt();
-                while (escolha != 1 && escolha != 2) {
-                    System.out.println("Resposta inválida! Digite novamente: ");
-                    escolha = s.nextInt();
-                }
-                if (produtos[escolha - 1].getQuantidade() > 0) {
-                    double preco = produtos[escolha - 1].getPreco();
-                    compra = compra + preco;
-                    int quant = produtos[escolha - 1].getQuantidade();
-                    produtos[escolha - 1].setQuantidade(quant - 1);
+                estoque.imprimirEstoque();
+                produto=s.nextLine();
+                Produto a= estoque.buscarproduto(produto);
+                if(a==null){
+                    System.out.println("Não encontramos esse produto.");
                 } else {
-                    System.out.println("Infelizmente não temos mais esse produto ;(");
+                    System.out.println("Produto encontrado!");
+                    a.setQuantidade(1);
+                    compra= compra + a.getPreco();
                 }
                 System.out.println("Deseja adicionar mais produtos?");
                 System.out.println("1 - Sim");
@@ -156,5 +150,5 @@ public class Main {
         } else {
             System.out.println("Cliente não encontrado.");
         }
-    }
-}
+    }}
+
