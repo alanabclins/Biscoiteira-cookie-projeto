@@ -90,14 +90,22 @@ public class Main {
                         clientes.deletarCadastro();
                         break;
                     case 9:
-                        /*
-                         * frete(entrega);
-                         * Double frete = entrega.calcularFrete();
-                         */
-                        realizarCompra(clientes, frete, estoque);
+                        double valorFrete = entrega.calcularFrete();
+                        if (valorFrete == 0) {
+                            System.out.println("Endereço inválido. Tente novamente.");
+                        } else if (valorFrete == 5) {
+                            System.out.println("O valor do frete é de R$5,00.");
+                        } else if (valorFrete == 7) {
+                            System.out.println("O valor do frete é de R$7,00.");
+                        } else if (valorFrete == 10) {
+                            System.out.println("O valor do frete é de R$10,00.");
+                        } else if (valorFrete == 15) {
+                            System.out.println("O valor do frete é de R$15,00.");
+                        }
+                        realizarCompra(clientes, frete, estoque, entrega);
                         break;
                     case 10:
-                        double valorFrete = entrega.calcularFrete();
+                        valorFrete = entrega.calcularFrete();
                         if (valorFrete == 0) {
                             System.out.println("Endereço inválido. Tente novamente.");
                         } else if (valorFrete == 5) {
@@ -123,21 +131,7 @@ public class Main {
 
     }
 
-    /*
-     * public static void frete(Entrega entrega){
-     * // calculando entrega
-     * Scanner s = new Scanner(System.in);
-     * System.out.println("Qual a sua zona?");
-     * String zona = s.nextLine();
-     * entrega.setZona(zona);
-     * Double frete = entrega.calcularFrete();
-     * System.out.println("O valor da entrega é " + frete + " e o tempo será de " +
-     * entrega.getTempoDeEntrega() + "min.");
-     * 
-     * }
-     * 
-     */
-    public static void realizarCompra(Clientes cliente, double frete, Estoque estoque) {
+    public static void realizarCompra(Clientes cliente, double frete, Estoque estoque, Entrega entrega) {
         Scanner s = new Scanner(System.in);
         System.out.println("Digite o nome do cliente que irá realizar a compra: ");
         String nomeBusca = s.nextLine();
@@ -170,7 +164,13 @@ public class Main {
                     break;
                 }
             }
-            System.out.println("Obrigada pela compra, biscoiteir@! O valor total da compra foi " + compra + ".");
+            double valorFrete = entrega.calcularFrete();
+            if (valorFrete == 0) {
+                System.out.println("Endereço inválido. Tente novamente.");
+            } else {
+                System.out.println("Obrigada pela compra, biscoiteir@! O valor total da compra foi " + (compra + valorFrete) + ".");
+            }
+            entrega.calcularTempo();
         } else {
             System.out.println("Cliente não encontrado.");
         }
