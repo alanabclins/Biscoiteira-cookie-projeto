@@ -42,22 +42,17 @@ public class Entrega  extends Cadastro{
                     achou = true;
                     if(cadastros.zona.equalsIgnoreCase("Zona Norte")){
                         this.frete = 5;
-                        //rever - calcularTempo();
                         return 5;
                     } else if(cadastros.zona.equalsIgnoreCase("Centro")){
                         this.frete = 7;
-                        //rever - calcularTempo();
                         return 7;
                     } else if(cadastros.zona.equalsIgnoreCase("Zona Oeste")){
                         this.frete = 10;
-                        //rever - calcularTempo();
                         return 10;
                     } else {
                         this.frete=15;
-                        //rever - calcularTempo();
                         return 15;
                     }
-                
                 }
                 if (achou == false) {
                     System.out.println("Poxa, esse nome ainda não foi cadastrado. Confirme o nome exato que você usou no seu cadastro e tente novamente.");
@@ -70,36 +65,36 @@ public class Entrega  extends Cadastro{
             String zona = s.nextLine();
             if (zona.equalsIgnoreCase("Zona Norte")) {
                 this.frete = 5;
-                //rever - calcularTempo();
                 return 5;
             }
             else if (zona.equalsIgnoreCase("Centro")) {
                 this.frete = 7;
-                //rever - calcularTempo();
                 return 7;
             }
             else if (zona.equalsIgnoreCase("Zona Oeste")) {
                 this.frete = 10;
-                //rever - calcularTempo();
                 return 10;
             } else {
                 this.frete = 15;
-                //rever - calcularTempo();
                 return 15;
             }
         }
         return 0;
     }
-    //ajeitar
     public  void calcularTempo(){
-        if(zona.compareToIgnoreCase("ZN")==1){
+        double frete = calcularFrete();
+        if(frete == 5) {
             this.tempoDeEntrega= 30;
-        } else if(zona.compareToIgnoreCase("centro")==1){
+            System.out.println("Seu pedido chegará em 30 min.");
+        } else if(frete == 7) {
             this.tempoDeEntrega= 45;
-        } else if(zona.compareToIgnoreCase("ZO")==1){
+            System.out.println("Seu pedido chegará em 45 min.");
+        } else if(frete == 10) {
             this.tempoDeEntrega= 60;
+            System.out.println("Seu pedido chegará em 60 min.");
         } else {
             this.tempoDeEntrega= 120;
+            System.out.println("Seu pedido chegará em 120 min.");
         }
     }
     public double getTempoDeEntrega() {
