@@ -47,7 +47,7 @@ public class Main {
         int resposta = s.nextInt();
         while (continuar == true) {
             if (resposta == 1) {
-                menuCliente();
+                menuFuncionario();
                 int escolha = s.nextInt();
                 s.nextLine();
 
@@ -76,20 +76,23 @@ public class Main {
                         break;
                 }
             } else {
-                menuFuncionario();
+                menuCliente();
                 int escolha = s.nextInt();
                 s.nextLine();
                 switch (escolha) {
-                    case 6:
+                    case 1:
                         clientes.cadastrarCliente();
                         break;
-                    case 7:
+                    case 2:
                         clientes.atualizarCadastro();
                         break;
-                    case 8:
+                    case 3:
                         clientes.deletarCadastro();
                         break;
-                    case 9:
+                    case 4:
+                        realizarCompra(clientes, frete, estoque, entrega);
+                        break;
+                    case 5:
                         double valorFrete = entrega.calcularFrete();
                         if (valorFrete == 0) {
                             System.out.println("Endereço inválido. Tente novamente.");
@@ -102,23 +105,8 @@ public class Main {
                         } else if (valorFrete == 15) {
                             System.out.println("O valor do frete é de R$15,00.");
                         }
-                        realizarCompra(clientes, frete, estoque, entrega);
                         break;
-                    case 10:
-                        valorFrete = entrega.calcularFrete();
-                        if (valorFrete == 0) {
-                            System.out.println("Endereço inválido. Tente novamente.");
-                        } else if (valorFrete == 5) {
-                            System.out.println("O valor do frete é de R$5,00.");
-                        } else if (valorFrete == 7) {
-                            System.out.println("O valor do frete é de R$7,00.");
-                        } else if (valorFrete == 10) {
-                            System.out.println("O valor do frete é de R$10,00.");
-                        } else if (valorFrete == 15) {
-                            System.out.println("O valor do frete é de R$15,00.");
-                        }
-                        break;
-                    case 11:
+                    case 6:
                         System.out.println("Finalizando programa:");
                         continuar = false;
                         break;
@@ -127,6 +115,8 @@ public class Main {
                         break;
                 }
             }
+            menu();
+            resposta = s.nextInt();
         }
 
     }
@@ -154,10 +144,10 @@ public class Main {
                 System.out.println("Deseja adicionar mais produtos?");
                 System.out.println("1 - Sim");
                 System.out.println("2 - Não");
-                int resposta = s.nextInt();
+                int resposta = s.nextInt(); s.nextLine();
                 while (resposta != 1 && resposta != 2) {
                     System.out.println("Resposta inválida! Digite novamente: ");
-                    resposta = s.nextInt();
+                    resposta = s.nextInt(); s.nextLine();
                 }
                 if (resposta == 2) {
                     carrinho = true;
@@ -168,7 +158,7 @@ public class Main {
             if (valorFrete == 0) {
                 System.out.println("Endereço inválido. Tente novamente.");
             } else {
-                System.out.println("Obrigada pela compra, biscoiteir@! O valor total da compra foi " + (compra + valorFrete) + ".");
+                System.out.println("Obrigada pela compra, biscoiteir@! O valor da sua compra foi de R$" + compra + " + o frete de R$" + valorFrete + "; dando um total de R$" + (compra + valorFrete) + ".");
             }
             entrega.calcularTempo();
         } else {
