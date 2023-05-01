@@ -63,23 +63,19 @@ public class Main {
                 int escolha = s.nextInt();
                 s.nextLine();
                 switch (escolha) {
-                    case 6:
+                    case 1:
                         clientes.cadastrarCliente();
                         break;
-                    case 7:
+                    case 2:
                         clientes.atualizarCadastro();
                         break;
-                    case 8:
+                    case 3:
                         clientes.deletarCadastro();
                         break;
-                    case 9:
-                        /*
-                         * frete(entrega);
-                         * Double frete = entrega.calcularFrete();
-                         */
-                        realizarCompra(clientes, frete, estoque);
+                    case 4:
+                        realizarCompra(clientes, frete, estoque, entrega);
                         break;
-                    case 10:
+                    case 5:
                         double valorFrete = entrega.calcularFrete();
                         if (valorFrete == 0) {
                             System.out.println("Endereço inválido. Tente novamente.");
@@ -93,7 +89,7 @@ public class Main {
                             System.out.println("O valor do frete é de R$15,00.");
                         }
                         break;
-                    case 11:
+                    case 6:
                         System.out.println("Finalizando programa:");
                         continuar = false;
                         break;
@@ -102,25 +98,13 @@ public class Main {
                         break;
                 }
             }
+            menu();
+            resposta = s.nextInt();
         }
 
     }
 
-    /*
-     * public static void frete(Entrega entrega){
-     * // calculando entrega
-     * Scanner s = new Scanner(System.in);
-     * System.out.println("Qual a sua zona?");
-     * String zona = s.nextLine();
-     * entrega.setZona(zona);
-     * Double frete = entrega.calcularFrete();
-     * System.out.println("O valor da entrega é " + frete + " e o tempo será de " +
-     * entrega.getTempoDeEntrega() + "min.");
-     * 
-     * }
-     * 
-     */
-    public static void realizarCompra(Clientes cliente, double frete, Estoque estoque) {
+    public static void realizarCompra(Clientes cliente, double frete, Estoque estoque, Entrega entrega) {
         Scanner s = new Scanner(System.in);
         System.out.println("Digite o nome do cliente que irá realizar a compra: ");
         String nomeBusca = s.nextLine();
@@ -143,17 +127,23 @@ public class Main {
                 System.out.println("Deseja adicionar mais produtos?");
                 System.out.println("1 - Sim");
                 System.out.println("2 - Não");
-                int resposta = s.nextInt();
+                int resposta = s.nextInt(); s.nextLine();
                 while (resposta != 1 && resposta != 2) {
                     System.out.println("Resposta inválida! Digite novamente: ");
-                    resposta = s.nextInt();
+                    resposta = s.nextInt(); s.nextLine();
                 }
                 if (resposta == 2) {
                     carrinho = true;
                     break;
                 }
             }
-            System.out.println("Obrigada pela compra, biscoiteir@! O valor total da compra foi " + compra + ".");
+            double valorFrete = entrega.calcularFrete();
+            if (valorFrete == 0) {
+                System.out.println("Endereço inválido. Tente novamente.");
+            } else {
+                System.out.println("Obrigada pela compra, biscoiteir@! O valor da sua compra foi de R$" + compra + " + o frete de R$" + valorFrete + "; dando um total de R$" + (compra + valorFrete) + ".");
+            }
+            entrega.calcularTempo();
         } else {
             System.out.println("Cliente não encontrado.");
         }
