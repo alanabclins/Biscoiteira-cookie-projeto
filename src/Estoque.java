@@ -2,15 +2,13 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Estoque {
+public class Estoque extends Produto{
     public static List<Produto> listaProdutos = new ArrayList<>();
-    protected String nome;
-    protected double preco;
-    protected int quantidade;
-    protected Produto produtos = new Produto(nome, preco, quantidade);
+    protected Produto produtos;
     Scanner s = new Scanner(System.in);
 
-    public Estoque() {
+    public Estoque(String nome, double preco, int quantidade) {
+        super(nome, preco, quantidade);
         this.produtos = new Produto(nome, preco, quantidade);
     }
 

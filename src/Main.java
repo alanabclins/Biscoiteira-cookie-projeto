@@ -8,29 +8,12 @@ public class Main {
         System.out.println("2 - Cliente");
     }
 
-    public static void menuFuncionario() {
-        System.out.println("Informe a operação que deseja realizar: ");
-        System.out.println("1. Buscar cadastro de cliente por nome");
-        System.out.println("2. Adicionar produto no estoque");
-        System.out.println("3. Apagar produto do estoque");
-        System.out.println("4. Mostrar todo o estoque");
-        System.out.println("5. Limpar estoque");
-        System.out.println("6. Sair");
-    }
-
-    public static void menuCliente() {
-        System.out.println("Informe a operação que deseja realizar: ");
-        System.out.println("1. Criar seu cadastro");
-        System.out.println("2. Atualizar informações do seu cadastro");
-        System.out.println("3. Deletar seu cadastro");
-        System.out.println("4. Realizar compra");
-        System.out.println("5. Calcular frete para sua zona");
-        System.out.println("6. Sair");
-    }
 
     public static void main(String[] args) {
-        Estoque estoque = new Estoque();
-        Clientes clientes = new Clientes();
+        Estoque estoque = new Estoque(null,0,0);
+        Clientes clientes = new Clientes(null, null, null, null, null);
+        MenuClientes menuClientes = new MenuClientes();
+        MenuFuncionario menuFuncionario = new MenuFuncionario();
         String nome = null;
         String telefone = null;
         String instagram = null;
@@ -47,7 +30,7 @@ public class Main {
         int resposta = s.nextInt();
         while (continuar == true) {
             if (resposta == 1) {
-                menuCliente();
+                menuClientes.exibirMenu();
                 int escolha = s.nextInt();
                 s.nextLine();
 
@@ -76,7 +59,7 @@ public class Main {
                         break;
                 }
             } else {
-                menuFuncionario();
+                menuFuncionario.exibirMenu();
                 int escolha = s.nextInt();
                 s.nextLine();
                 switch (escolha) {
