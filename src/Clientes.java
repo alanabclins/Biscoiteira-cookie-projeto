@@ -2,17 +2,14 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Clientes {
+public class Clientes extends Cadastro {
+    //List<Cadastro> listaCadastros = new ArrayList<>();
     public static List<Cadastro> listaCadastros = new ArrayList<Cadastro>();
-    String nome;
-    String telefone;
-    String instagram;
-    String endereco;
-    String zona;
-    Cadastro cadastros = new Cadastro(nome, telefone, instagram, endereco, zona);
+    Cadastro cadastros;
     Scanner s = new Scanner(System.in);
 
-    public Clientes() {
+    public Clientes(String nome, String telefone, String instagram, String endereco, String zona) {
+        super(nome, telefone, instagram, endereco, zona);
         this.cadastros = new Cadastro(nome, telefone, instagram, endereco, zona);
     }
     

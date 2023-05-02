@@ -30,9 +30,7 @@ public class Main {
         int resposta = s.nextInt();
         while (continuar == true) {
             if (resposta == 1) {
-                menuClientes.exibirMenu();
-                int escolha = s.nextInt();
-                s.nextLine();
+              int  escolha=  menuClientes.exibirMenu();
 
                 switch (escolha) {
                     case 1:
