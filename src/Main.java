@@ -30,7 +30,6 @@ public class Main {
         while (continuar == true) {
             if (resposta == 1) {
               int  escolha=  menuFuncionario.exibirMenu();
-
                 switch (escolha) {
                     case 1:
                         clientes.buscarCliente();
@@ -56,8 +55,7 @@ public class Main {
                         break;
                 }
             } else {
-                menuClientes.exibirMenu();
-                int escolha = s.nextInt(); s.nextLine();
+                int escolha = menuClientes.exibirMenu();
                 switch (escolha) {
                     case 1:
                         clientes.cadastrarCliente();
