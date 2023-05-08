@@ -23,8 +23,8 @@ public class Produto  {
     public int getQuantidade() {
         return quantidade;
     }
-    public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
+    public void setQuantidade(int x) {
+        this.quantidade = quantidade-x;
     }
     public void delete (String nome){
         if(nome.equals(this.nome)){
