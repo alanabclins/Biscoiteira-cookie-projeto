@@ -3,13 +3,11 @@ import java.util.Scanner;
 
 public class Entrega  extends Cadastro{
     protected double frete;
-    protected double tempoDeEntrega;
     private List<Cadastro> listaCadastros = Clientes.listaCadastros;
     Scanner s = new Scanner(System.in);
     
     public Entrega(String nome, String telefone, String instagram, String endereco, String zona, double frete) {
         super(nome, telefone, instagram, endereco, zona);
-        this.tempoDeEntrega= 0;
         this.frete = 0;
     }
     public String getEndereco() {
@@ -80,27 +78,5 @@ public class Entrega  extends Cadastro{
             }
         }
         return 0;
-    }
-    public  void calcularTempo(){
-        double frete = calcularFrete();
-        if(frete == 5) {
-            this.tempoDeEntrega= 30;
-            System.out.println("Seu pedido chegará em 30 min.");
-        } else if(frete == 7) {
-            this.tempoDeEntrega= 45;
-            System.out.println("Seu pedido chegará em 45 min.");
-        } else if(frete == 10) {
-            this.tempoDeEntrega= 60;
-            System.out.println("Seu pedido chegará em 60 min.");
-        } else {
-            this.tempoDeEntrega= 120;
-            System.out.println("Seu pedido chegará em 120 min.");
-        }
-    }
-    public double getTempoDeEntrega() {
-        return tempoDeEntrega;
-    }
-    public void setTempoDeEntrega(double tempoDeEntrega) {
-        this.tempoDeEntrega = tempoDeEntrega;
     }
 }

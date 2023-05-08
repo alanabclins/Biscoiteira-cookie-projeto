@@ -3,7 +3,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Clientes extends Cadastro {
-    //List<Cadastro> listaCadastros = new ArrayList<>();
     public static List<Cadastro> listaCadastros = new ArrayList<Cadastro>();
     Cadastro cadastros;
     Scanner s = new Scanner(System.in);

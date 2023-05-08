@@ -8,7 +8,6 @@ public class Main {
         System.out.println("2 - Cliente");
     }
 
-
     public static void main(String[] args) {
         Estoque estoque = new Estoque(null,0,0);
         Clientes clientes = new Clientes(null, null, null, null, null);
@@ -23,15 +22,13 @@ public class Main {
         Entrega entrega = new Entrega(nome, telefone, instagram, endereco, zona, frete);
         List<Produto> listaProdutos = Estoque.listaProdutos;
         Scanner s = new Scanner(System.in);
-        // Clientes cliente = new Clientes(nome, telefone, instagram, endereco);
         System.out.println("Bem-vindo ao Biscoiteira cookie!");
         boolean continuar = true;
         menu();
-        int resposta = s.nextInt();
+        int resposta = s.nextInt(); s.nextLine();
         while (continuar == true) {
             if (resposta == 1) {
-              int  escolha=  menuClientes.exibirMenu();
-
+              int  escolha=  menuFuncionario.exibirMenu();
                 switch (escolha) {
                     case 1:
                         clientes.buscarCliente();
@@ -57,9 +54,8 @@ public class Main {
                         break;
                 }
             } else {
-                menuFuncionario.exibirMenu();
-                int escolha = s.nextInt();
-                s.nextLine();
+                menuClientes.exibirMenu();
+                int escolha = s.nextInt(); s.nextLine();
                 switch (escolha) {
                     case 1:
                         clientes.cadastrarCliente();
@@ -78,13 +74,17 @@ public class Main {
                         if (valorFrete == 0) {
                             System.out.println("Endereço inválido. Tente novamente.");
                         } else if (valorFrete == 5) {
-                            System.out.println("O valor do frete é de R$5,00.");
+                            System.out.println("O valor do frete é de R$" + valorFrete);
+                            System.out.println("O tempo de entrega é de 30 min.");
                         } else if (valorFrete == 7) {
-                            System.out.println("O valor do frete é de R$7,00.");
+                            System.out.println("O valor do frete é de R$" + valorFrete);
+                            System.out.println("O tempo de entrega é de 45 min.");
                         } else if (valorFrete == 10) {
-                            System.out.println("O valor do frete é de R$10,00.");
+                            System.out.println("O valor do frete é de R$" + valorFrete);
+                            System.out.println("O tempo de entrega é de 60 min.");
                         } else if (valorFrete == 15) {
-                            System.out.println("O valor do frete é de R$15,00.");
+                            System.out.println("O valor do frete é de R$" + valorFrete);
+                            System.out.println("O tempo de entrega é de 120 min.");
                         }
                         break;
                     case 6:
@@ -97,9 +97,8 @@ public class Main {
                 }
             }
             menu();
-            resposta = s.nextInt();
+            resposta = s.nextInt(); s.nextLine();
         }
-
     }
 
     public static void realizarCompra(Clientes cliente, double frete, Estoque estoque, Entrega entrega) {
@@ -141,7 +140,15 @@ public class Main {
             } else {
                 System.out.println("Obrigada pela compra, biscoiteir@! O valor da sua compra foi de R$" + compra + " + o frete de R$" + valorFrete + "; dando um total de R$" + (compra + valorFrete) + ".");
             }
-            entrega.calcularTempo();
+            if(valorFrete == 5) {
+                System.out.println("Seu pedido chegará em 30 min.");
+            } else if(valorFrete == 7) {
+                System.out.println("Seu pedido chegará em 45 min.");
+            } else if(valorFrete == 10) {
+                System.out.println("Seu pedido chegará em 60 min.");
+            } else {
+                System.out.println("Seu pedido chegará em 120 min.");
+            }
         } else {
             System.out.println("Cliente não encontrado.");
         }

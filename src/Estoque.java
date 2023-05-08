@@ -61,5 +61,4 @@ public class Estoque extends Produto{
         listaProdutos.clear();
         System.out.println("Estoque limpo com sucesso!");
     }
-
 }
