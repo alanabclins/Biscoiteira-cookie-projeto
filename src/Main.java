@@ -30,7 +30,7 @@ public class Main {
         int resposta = s.nextInt();
         while (continuar == true) {
             if (resposta == 1) {
-              int  escolha=  menuClientes.exibirMenu();
+              int  escolha=  menuFuncionario.exibirMenu();
 
                 switch (escolha) {
                     case 1:
@@ -57,7 +57,7 @@ public class Main {
                         break;
                 }
             } else {
-                int escolha = menuFuncionario.exibirMenu();
+                int escolha = menuClientes.exibirMenu();
             
                 switch (escolha) {
                     case 1:
