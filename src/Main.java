@@ -57,9 +57,8 @@ public class Main {
                         break;
                 }
             } else {
-                menuFuncionario.exibirMenu();
-                int escolha = s.nextInt();
-                s.nextLine();
+                int escolha = menuFuncionario.exibirMenu();
+            
                 switch (escolha) {
                     case 1:
                         clientes.cadastrarCliente();
