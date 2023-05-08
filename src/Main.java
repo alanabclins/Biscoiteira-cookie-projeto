@@ -14,6 +14,7 @@ public class Main {
         Clientes clientes = new Clientes(null, null, null, null, null);
         MenuClientes menuClientes = new MenuClientes();
         MenuFuncionario menuFuncionario = new MenuFuncionario();
+        brinde sorte = new brinde();
         String nome = null;
         String telefone = null;
         String instagram = null;
@@ -58,7 +59,6 @@ public class Main {
                 }
             } else {
                 int escolha = menuClientes.exibirMenu();
-            
                 switch (escolha) {
                     case 1:
                         clientes.cadastrarCliente();
@@ -70,7 +70,7 @@ public class Main {
                         clientes.deletarCadastro();
                         break;
                     case 4:
-                        realizarCompra(clientes, frete, estoque, entrega);
+                        realizarCompra(clientes, frete, estoque, entrega, sorte);
                         break;
                     case 5:
                         double valorFrete = entrega.calcularFrete();
@@ -101,7 +101,7 @@ public class Main {
 
     }
 
-    public static void realizarCompra(Clientes cliente, double frete, Estoque estoque, Entrega entrega) {
+    public static void realizarCompra(Clientes cliente, double frete, Estoque estoque, Entrega entrega, brinde sorte) {
         Scanner s = new Scanner(System.in);
         System.out.println("Digite o nome do cliente que irá realizar a compra: ");
         String nomeBusca = s.nextLine();
@@ -139,6 +139,10 @@ public class Main {
                 System.out.println("Endereço inválido. Tente novamente.");
             } else {
                 System.out.println("Obrigada pela compra, biscoiteir@! O valor da sua compra foi de R$" + compra + " + o frete de R$" + valorFrete + "; dando um total de R$" + (compra + valorFrete) + ".");
+                boolean win = sorte.sortudo();
+                if(win==true){
+                    System.out.println("Parabéns, você ganhou um adesivo!");
+                }
             }
             entrega.calcularTempo();
         } else {
