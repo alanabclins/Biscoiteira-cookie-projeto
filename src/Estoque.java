@@ -55,8 +55,16 @@ public class Estoque extends Produto{
             System.out.println("Quantidade: " + produtos.getQuantidade());
             System.out.println("------------------------");
         }
+        if (listaProdutos.isEmpty()) {
+            System.out.println("A lista de produtos está vazia.");
+        }
+        
+        
     }
-
+    public static <T> boolean Empty(ArrayList<T> list) {
+        return list == null || list.isEmpty();
+    }
+    
     public void limparEstoque() {
         listaProdutos.clear();
         System.out.println("Estoque limpo com sucesso!");
