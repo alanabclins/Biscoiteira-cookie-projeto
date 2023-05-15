@@ -12,6 +12,11 @@ public class Cadastro {
         this.endereco = endereco;
         this.zona = zona;
     }
+    public Cadastro(String nome, String telefone, String instagram) {
+        this.nome = nome;
+        this.telefone = telefone;
+        this.instagram = instagram;
+    }
 
     public String getNome() {
         return nome;

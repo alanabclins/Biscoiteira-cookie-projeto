@@ -19,6 +19,7 @@ public class Main {
         String instagram = null;
         String endereco = null;
         String zona = null;
+        boolean retirar =false;
         double frete = 0;
         Entrega entrega = new Entrega(nome, telefone, instagram, endereco, zona, frete);
         List<Produto> listaProdutos = Estoque.listaProdutos;
@@ -67,7 +68,9 @@ public class Main {
                         clientes.deletarCadastro();
                         break;
                     case 4:
-                        realizarCompra(clientes, frete, estoque, entrega, sorte);
+                        System.out.println("Deseja retirar a compra? True- Sim False- Nao");
+                        retirar=s.nextBoolean();
+                        realizarCompra(clientes, frete, estoque, entrega, sorte,retirar);
                         break;
                     case 5:
                         double valorFrete = entrega.calcularFrete();
@@ -96,12 +99,10 @@ public class Main {
                         break;
                 }
             }
-            menu();
-            resposta = s.nextInt(); s.nextLine();
         }
     }
 
-    public static void realizarCompra(Clientes cliente, double frete, Estoque estoque, Entrega entrega, brinde sorte) {
+    public static void realizarCompra(Clientes cliente, double frete, Estoque estoque, Entrega entrega, brinde sorte, boolean retirar) {
         Scanner s = new Scanner(System.in);
         System.out.println("Digite o nome do cliente que irá realizar a compra: ");
         String nomeBusca = s.nextLine();
@@ -133,7 +134,7 @@ public class Main {
                     carrinho = true;
                     break;
                 }
-            }
+            } if (retirar==false){
             double valorFrete = entrega.calcularFrete();
             if (valorFrete == 0) {
                 System.out.println("Endereço inválido. Tente novamente.");
@@ -156,5 +157,8 @@ public class Main {
         } else {
             System.out.println("Cliente não encontrado.");
         }
+    } else {
+        System.out.println("Retire no nosso ponto em 120 minutos no endereço: Rua Dr. Fernando, 300.");
+    }
     }
 }
