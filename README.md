@@ -12,6 +12,7 @@
 <h2>Tecnologias utilizadas </h2>
 <ol>
 <li> Java: para a criação da aplicação. </li>
+<li> Html e Css: para a da página da aplicação. </li>
 </ol>
 <h2>Contribuidores</h2>
 <ol>
