@@ -5,6 +5,7 @@ public class Cadastro {
     protected String endereco;
     protected String zona;
 
+    //polimorfismo em cadastro com os dois construtores
     public Cadastro(String nome, String telefone, String instagram, String endereco, String zona) {
         this.nome = nome;
         this.telefone = telefone;
