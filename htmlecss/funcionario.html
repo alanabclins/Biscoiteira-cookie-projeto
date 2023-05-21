@@ -5,15 +5,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biscoiteira-funcionario</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-funcionario.css">
 </head>
-<body>
+<body class="funcionario">
     <header></header>
     <main class="presentation">
         <section class="presentation__content">
             <h1 class="presentation__content__title">Página do Funcionário</h1>
             <p class="presentation__content__p">Conteúdo exclusivo para funcionários.</p>
-            <p>Colocar funcoes</p>
+            <h2>Buscar Cliente</h2>
+            <form>
+                <label for="cliente-nome">Nome:</label>
+                <input type="text" id="cliente-nome">
+                <button type="submit">Buscar</button>
+            </form>
+
+            <h2>Adicionar Produto</h2>
+            <form>
+                <label for="produto-nome">Nome:</label>
+                <input type="text" id="produto-nome">
+                <label for="produto-preco">Preço:</label>
+                <input type="text" id="produto-preco">
+                <label for="produto-quantidade">Quantidade:</label>
+                <input type="text" id="produto-quantidade">
+                <button type="submit">Adicionar</button>
+            </form>
+
+            <h2>Apagar Produto</h2>
+            <form>
+                <label for="produto-nome">Nome:</label>
+                <input type="text" id="produto-nome">
+                <button type="submit">Apagar</button>
+            </form>
+
+            <h2>Imprimir Estoque</h2>
+            <button onclick="">Imprimir</button>
+
+            <h2>Limpar Estoque</h2>
+            <button onclick="">Limpar</button>
+        </section>
+    </main>
         </section>
     </main>
     <footer></footer>
