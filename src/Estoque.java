@@ -1,6 +1,7 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class Estoque extends Produto{
     public static List<Produto> listaProdutos = new ArrayList<>();
@@ -36,14 +37,21 @@ public class Estoque extends Produto{
     public void apagarProduto() {
         System.out.println("Digite o nome do produto que quer deletar: ");
         String nomeBusca = s.nextLine();
+        boolean produtoencontrado=false;
         for (Produto produtos : listaProdutos) {
             if (nomeBusca.equalsIgnoreCase(produtos.nome)) {
                 listaProdutos.remove(produtos);
+                produtoencontrado=true;
                 System.out.println("Produto deletado com sucesso!");
                 break;
-            } else {
-                System.out.println("Produto não encontrado.");
+            } 
+        }
+        try {
+            if(!produtoencontrado){
+                throw new NoSuchElementException("Produto não encontrado!");
             }
+        } catch (Exception e) {
+            System.out.println("Erro: " + e.getMessage());
         }
     }
 
