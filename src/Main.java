@@ -55,6 +55,8 @@ public class Main {
                         System.out.println("Hello, biscoiteiro! Digite uma opção válida :) ");
                         break;
                 }
+                menu();
+                resposta = s.nextInt(); s.nextLine();
             } else {
                 int escolha = menuClientes.exibirMenu();
                 switch (escolha) {
