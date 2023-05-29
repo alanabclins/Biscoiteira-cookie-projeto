@@ -65,9 +65,7 @@ public class Estoque extends Produto{
         }
         if (listaProdutos.isEmpty()) {
             System.out.println("A lista de produtos está vazia.");
-        }
-        
-        
+        } 
     }
     
     public static <T> boolean Empty(ArrayList<T> list) {
