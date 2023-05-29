@@ -1,3 +1,5 @@
+package Cliente;
+
 public class Cadastro {
     protected String nome;
     protected String telefone;

@@ -1,7 +1,12 @@
 import java.util.Scanner;
+//import java.util.List;
 import Menu.MenuClientes;
 import Menu.MenuFuncionario;
 import Brinde.brinde;
+import Cliente.Clientes;
+import Cliente.Entrega;
+import Produto.Estoque;
+import Produto.Produto;
 
 public class Main {
     public static void menu() {
@@ -23,6 +28,7 @@ public class Main {
         MenuClientes menuClientes = new MenuClientes();
         MenuFuncionario menuFuncionario = new MenuFuncionario();
         brinde sorte = new brinde();
+        //List<Produto> listaProdutos = Estoque.listaProdutos;
         Entrega entrega = new Entrega(nome, telefone, instagram, endereco, zona, frete);
 
         System.out.println("Bem-vindo ao Biscoiteira cookie!");
@@ -97,7 +103,6 @@ public class Main {
                         System.out.println("Hello, biscoiteiro! Digite uma opção válida :) ");
                         break;
                 } 
-                break;
             }
         }
     }
@@ -107,7 +112,7 @@ public class Main {
         System.out.println("Digite o nome do cliente que irá realizar a compra: ");
         String nomeBusca = s.nextLine();
         String produto;
-        if (nomeBusca.equalsIgnoreCase(cliente.nome)) {
+        if (nomeBusca.equalsIgnoreCase(cliente.getNome())) {
             boolean carrinho = false;
             double compra = frete;
             while (carrinho == false) {
