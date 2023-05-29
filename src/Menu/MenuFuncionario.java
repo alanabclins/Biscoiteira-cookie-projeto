@@ -1,3 +1,5 @@
+package Menu;
+
 public class MenuFuncionario extends Menu {
     @Override
     public int exibirMenu() {

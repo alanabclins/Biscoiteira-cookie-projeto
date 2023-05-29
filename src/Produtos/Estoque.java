@@ -69,6 +69,7 @@ public class Estoque extends Produto{
         
         
     }
+    
     public static <T> boolean Empty(ArrayList<T> list) {
         return list == null || list.isEmpty();
     }

@@ -1,3 +1,4 @@
+package Brinde;
 import java.util.Random;
 
 public class brinde implements sorteio{
@@ -7,5 +8,4 @@ public class brinde implements sorteio{
         Random random = new Random();
         return random.nextBoolean();
     } 
-
 }

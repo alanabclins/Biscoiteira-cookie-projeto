@@ -10,24 +10,31 @@ public class Entrega  extends Cadastro{
         super(nome, telefone, instagram, endereco, zona);
         this.frete = 0;
     }
+    
     public String getEndereco() {
         return endereco;
     }
+    
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
+    
     public String getZona() {
         return zona;
     }
+    
     public void setZona(String zona) {
         this.zona = zona;
     }
+    
     public double getFrete() {
         return frete;
     }
+    
     public void setFrete(double frete) {
         this.frete = frete;
     }
+    
     public double calcularFrete() {
         System.out.println("Deseja usar seu endereço cadastrado? 1- Sim; 2- Não, usar outro endereço.");
         int resposta = s.nextInt(); s.nextLine();
