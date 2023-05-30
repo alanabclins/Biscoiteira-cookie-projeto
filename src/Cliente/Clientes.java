@@ -1,5 +1,4 @@
 package Cliente;
-
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +24,11 @@ public class Clientes extends Cadastro {
         this.endereco = s.nextLine();
         System.out.println("Em que zona de Recife está localizado seu endereço? (Zona Norte, Zona Sul, Zona Oeste ou Centro)");
         this.zona = s.nextLine();
+        if (!zona.equalsIgnoreCase("Zona Norte") && !zona.equalsIgnoreCase("Zona Sul") && !zona.equalsIgnoreCase("Zona Oeste") && !zona.equalsIgnoreCase("Centro")) {
+            System.out.println("Zona inválida. Por favor, preencha novamente.");
+            System.out.println("Em que zona de Recife está localizado seu endereço? (Zona Norte, Zona Sul, Zona Oeste ou Centro)");
+            this.zona = s.nextLine();
+        }
         Cadastro cadastros = new Cadastro(nome, telefone, instagram, endereco, zona);
         listaCadastros.add(cadastros);
         System.out.println("Cadastro concluído com sucesso!");
@@ -44,6 +48,11 @@ public class Clientes extends Cadastro {
                 cadastros.endereco = s.nextLine();
                 System.out.println("Digite a zona do seu novo endereço (Zona Norte, Zona Sul, Zona Oeste ou Centro): ");
                 cadastros.zona = s.nextLine();
+                if (!cadastros.zona.equalsIgnoreCase("Zona Norte") && !cadastros.zona.equalsIgnoreCase("Zona Sul") && !cadastros.zona.equalsIgnoreCase("Zona Oeste") && !cadastros.zona.equalsIgnoreCase("Centro")) {
+                    System.out.println("Zona inválida. Por favor, preencha novamente.");
+                    System.out.println("Digite a zona do seu novo endereço (Zona Norte, Zona Sul, Zona Oeste ou Centro): ");
+                    cadastros.zona = s.nextLine();
+                }
                 System.out.println("Cadastro atualizado com sucesso!");
                 achou = true;
                 break;

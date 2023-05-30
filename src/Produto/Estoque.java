@@ -15,7 +15,7 @@ public class Estoque extends Produto{
         this.produtos = new Produto(nome, preco, quantidade);
     }
 
-    public Produto buscarproduto(String x){
+    public Produto buscarProduto(String x){
         for (Produto produto : listaProdutos) {
             if(produto.nome.equalsIgnoreCase(x)){
                 return produto;

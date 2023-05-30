@@ -34,12 +34,4 @@ public class Produto  {
     public void setQuantidade(int x) {
         this.quantidade = quantidade-x;
     }
-    
-    /*public void delete (String nome){
-        if(nome.equals(this.nome)){
-        this.nome = null;
-        this.preco = 0;
-        this.quantidade = 0;
-        }
-    }*/
 }
