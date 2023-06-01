@@ -24,10 +24,10 @@ public class Main {
         Scanner s = new Scanner(System.in);
         Estoque estoque = new Estoque(null,0,0);
         Clientes clientes = new Clientes(null, null, null, null, null);
+        Entrega entrega = new Entrega(nome, telefone, instagram, endereco, zona, frete);
         MenuClientes menuClientes = new MenuClientes();
         MenuFuncionario menuFuncionario = new MenuFuncionario();
         brinde sorte = new brinde();
-        Entrega entrega = new Entrega(nome, telefone, instagram, endereco, zona, frete);
 
         System.out.println("Bem-vindo ao Biscoiteira cookie!");
         boolean continuar = true;
