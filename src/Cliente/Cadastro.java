@@ -1,3 +1,5 @@
+package Cliente;
+
 public class Cadastro {
     protected String nome;
     protected String telefone;
@@ -13,6 +15,7 @@ public class Cadastro {
         this.endereco = endereco;
         this.zona = zona;
     }
+    
     public Cadastro(String nome, String telefone, String instagram) {
         this.nome = nome;
         this.telefone = telefone;

@@ -1,33 +1,25 @@
+package Cliente;
 import java.util.List;
 import java.util.Scanner;
 
 public class Entrega  extends Cadastro{
     protected double frete;
-    private List<Cadastro> listaCadastros = Clientes.listaCadastros;
+    protected List<Cadastro> listaCadastros = Clientes.listaCadastros;
     Scanner s = new Scanner(System.in);
     
     public Entrega(String nome, String telefone, String instagram, String endereco, String zona, double frete) {
         super(nome, telefone, instagram, endereco, zona);
         this.frete = 0;
     }
-    public String getEndereco() {
-        return endereco;
-    }
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-    public String getZona() {
-        return zona;
-    }
-    public void setZona(String zona) {
-        this.zona = zona;
-    }
+    
     public double getFrete() {
         return frete;
     }
+    
     public void setFrete(double frete) {
         this.frete = frete;
     }
+    
     public double calcularFrete() {
         System.out.println("Deseja usar seu endereço cadastrado? 1- Sim; 2- Não, usar outro endereço.");
         int resposta = s.nextInt(); s.nextLine();
@@ -48,7 +40,7 @@ public class Entrega  extends Cadastro{
                         this.frete = 10;
                         return 10;
                     } else {
-                        this.frete=15;
+                        this.frete = 15;
                         return 15;
                     }
                 }
