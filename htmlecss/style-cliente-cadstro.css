@@ -33,9 +33,9 @@
   .menu a {
     color: #FFF;
     text-decoration: none;
-    font-size: 50px;
-    padding: 10px;
-    border-radius: 5px;
+    font-size: 37px;
+    padding: 5px;
+    border-radius: 0px;
     transition: background-color 0.3s ease;
   }
   
@@ -52,11 +52,10 @@
   }
   
   .presentation__content {
-    width: 100%;
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 0 20px; 
-    box-sizing: border-box;
+    background-color: #FFF;
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
   }
   
   
@@ -125,4 +124,57 @@
   button:hover {
     background-color: #D25380;
   }
+  .atualizar {
+    font-family: Arial, sans-serif;
+    background-color: #F6C391;
+    color: #E08E6D;
+  }
+  
+  .atualizar__content {
+    width: 100%;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #FFF;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  .atualizar__content__title {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  .atualizar__content form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .atualizar__content form label {
+    margin-bottom: 10px;
+  }
+  
+  .atualizar__content form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .atualizar__content form button {
+    padding: 10px 20px;
+    background-color: #E08E6D;
+    color: #FFF;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .atualizar__content form button:hover {
+    background-color: #D25380;
+  }
+  
   
