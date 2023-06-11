@@ -176,5 +176,37 @@
   .atualizar__content form button:hover {
     background-color: #D25380;
   }
+  .calcular-frete {
+    margin-top: 20px;
+  }
+  
+  .calcular-frete label {
+    font-size: 18px;
+    margin-right: 10px;
+  }
+  
+  .calcular-frete input[type="text"] {
+    padding: 5px;
+    margin-right: 10px;
+  }
+  
+  .calcular-frete button {
+    padding: 10px 20px;
+    background-color: #E08E6D;
+    color: #FFF;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .calcular-frete button:hover {
+    background-color: #D25380;
+  }
+  
+  .calcular-frete #resultado-frete {
+    margin-top: 10px;
+    font-weight: bold;
+  }
   
   
